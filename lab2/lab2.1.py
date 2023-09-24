@@ -15,6 +15,7 @@ data_with_noise = pd.read_csv('data.csv')
 plot_3d_graph(data_with_noise['x1'], data_with_noise['x2'], data_with_noise['Y'],
               '3D график с добавленным шумом', color='r')
 
+
 single_neuron_net1 = create_neural_network(1, 2)
 single_neuron_net2 = create_neural_network(1, 2)
 

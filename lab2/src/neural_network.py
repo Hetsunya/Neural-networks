@@ -56,11 +56,12 @@ class Neuron:
         for inputs, target in test_data:
             predictions = [neuron.predict(inputs) for neuron in neural_net.neurons]
 
-            errors = [(target - prediction) ** 2 for prediction in predictions]
+            errors = [(1 / 2) * (target - prediction) ** 2 for prediction in predictions]
             total_error += sum(errors)
 
         # Усредняем ошибку по всем нейронам и элементам тестовой выборки
         mse = total_error / (num_neurons * len(test_data))
+        print(errors)
         return mse
 
     def get_weights(self):
