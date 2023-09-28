@@ -20,6 +20,7 @@ single_neuron_net1 = create_neural_network(1, 2)
 single_neuron_net2 = create_neural_network(1, 2)
 
 training_set = []
+print(data_with_noise)
 for index, row in data_with_noise.iterrows():
     inputs = row[['x1', 'x2']].tolist()
     target = row['Y']
@@ -28,8 +29,8 @@ for index, row in data_with_noise.iterrows():
 train_data, test_data = split_data(training_set, train_fraction=0.8)
 
 # при рейте меньше 0.0001 nan
-train_neural_network_1(single_neuron_net1, train_data, epochs=100, learning_rate=0.0001, target_error=0.0001)
-train_neural_network_2(single_neuron_net2, train_data, epochs=100, learning_rate=0.0001, target_error=0.0001)
+train_neural_network_1(single_neuron_net1, train_data, epochs=1000, learning_rate=0.0001, target_error=0.0001)
+train_neural_network_2(single_neuron_net2, train_data, epochs=1000, learning_rate=0.0001, target_error=0.0001)
 
 print(Neuron.calculate_mse_for_network(single_neuron_net1, test_data))
 print(Neuron.calculate_mse_for_network(single_neuron_net2, test_data))
@@ -43,3 +44,9 @@ print("\nВеса после обучения для сети с одним не
 neuron_weights, bias = single_neuron_net2.neurons[0].get_weights()
 print(f"Веса нейрона: {neuron_weights}")
 print(f"Смещение (bias): {bias}")
+
+# for input, target in training_set:
+#     print(f"{single_neuron_net1.neurons[0].predict(input)} = {target}")
+#
+# for input, target in training_set:
+#     print(f"{single_neuron_net2.neurons[0].predict(input)} = {target}")

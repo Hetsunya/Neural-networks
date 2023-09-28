@@ -61,7 +61,6 @@ class Neuron:
 
         # Усредняем ошибку по всем нейронам и элементам тестовой выборки
         mse = total_error / (num_neurons * len(test_data))
-        print(errors)
         return mse
 
     def get_weights(self):
