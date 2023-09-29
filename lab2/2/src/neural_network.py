@@ -2,6 +2,14 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+def print_predictions_and_targets(neural_net, test_data):
+    print("Предсказанные значения и целевые значения:")
+    for inputs, target in test_data:
+        predictions = [neuron.predict(inputs) for neuron in neural_net.neurons]
+        print(f"Предсказание: {predictions}, Целевое значение: {target}")
+
+
 def plot_3d_graph(x1, x2, y, title, color='b'):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -43,10 +51,9 @@ class Neuron:
         prediction = self.predict(x)
         error = y - prediction
 
-        # Проверяем, не равны ли prediction и target
-        if prediction != y:
-            self.weights += learning_rate * error * x
-            self.bias += learning_rate * error
+        # Обновляем веса и смещение
+        self.weights += learning_rate * error * x
+        self.bias += learning_rate * error
 
     @staticmethod
     def calculate_mse_for_network(neural_net, test_data):
@@ -76,11 +83,11 @@ def create_neural_network(num_neurons, num_inputs_per_neuron):
 def train_neural_network_1(neural_net, training_set, epochs, learning_rate, target_error):
     for epoch in range(epochs):
         total_error = 0
-        for inputs, target in training_set:
-            for neuron in neural_net.neurons:
-                neuron.update_weights(inputs, target, learning_rate)
-            prediction = neural_net.neurons[0].predict(inputs)
-            total_error += (target - prediction) ** 2
+        for inputs, targets in training_set:
+            for i, neuron in enumerate(neural_net.neurons):
+                neuron.update_weights(inputs, targets[i], learning_rate)
+                prediction = neuron.predict(inputs)
+                total_error += (targets[i] - prediction) ** 2
 
         total_error /= len(training_set)
 

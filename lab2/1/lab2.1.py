@@ -1,6 +1,6 @@
 import pandas as pd
 from src.neural_network import create_neural_network, train_neural_network_1, train_neural_network_2,\
-    DataGenerator, split_data, plot_3d_graph, Neuron
+    DataGenerator, split_data, plot_3d_graph, Neuron, print_predictions_and_targets
 
 DataGenerator.generate_data('data.csv')
 
@@ -29,8 +29,8 @@ for index, row in data_with_noise.iterrows():
 train_data, test_data = split_data(training_set, train_fraction=0.8)
 
 # при рейте меньше 0.0001 nan
-train_neural_network_1(single_neuron_net1, train_data, epochs=1000, learning_rate=0.0001, target_error=0.0001)
-train_neural_network_2(single_neuron_net2, train_data, epochs=1000, learning_rate=0.0001, target_error=0.0001)
+train_neural_network_1(single_neuron_net1, train_data, epochs=1000, learning_rate=0.0001, target_error=0.01)
+train_neural_network_2(single_neuron_net2, train_data, epochs=1000, learning_rate=0.0001, target_error=0.01)
 
 print(Neuron.calculate_mse_for_network(single_neuron_net1, test_data))
 print(Neuron.calculate_mse_for_network(single_neuron_net2, test_data))
@@ -50,3 +50,12 @@ print(f"Смещение (bias): {bias}")
 #
 # for input, target in training_set:
 #     print(f"{single_neuron_net2.neurons[0].predict(input)} = {target}")
+
+print_predictions_and_targets(single_neuron_net1, training_set)
+print_predictions_and_targets(single_neuron_net2, training_set)
+
+print_predictions_and_targets(single_neuron_net1, test_data)
+print_predictions_and_targets(single_neuron_net2, test_data)
+
+print_predictions_and_targets(single_neuron_net1, train_data)
+print_predictions_and_targets(single_neuron_net2, train_data)
