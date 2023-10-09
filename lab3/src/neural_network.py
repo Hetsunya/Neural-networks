@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 
 def print_predictions_and_targets(neural_net, test_data):
     print("Предсказанные значения и целевые значения:")
-    for inputs, target in test_data:
+    for row in test_data:
+        inputs = row[:-1]
+        target = row[-1]
         layer_inputs = inputs
         for layer in neural_net.layers:
             layer_outputs = layer.forward_pass(layer_inputs)
@@ -40,6 +42,15 @@ class DataGenerator:
         data.to_csv(filename, index=False)
 
 class Neuron:
+    def backward_pass(self, inputs, target, learning_rate):
+        inputs = np.array(inputs)
+        prediction = self.predict(inputs)
+        error = target - prediction
+
+        # Поэлементное умножение
+        self.weights += learning_rate * error * inputs
+        self.bias += learning_rate * error
+
     def __init__(self, num_inputs):
         self.weights = np.random.uniform(0.001, 0.2, num_inputs)
         self.bias = np.random.uniform(0.001, 0.2)
@@ -103,7 +114,10 @@ def create_neural_network(num_layers, num_neurons_per_layer, num_inputs):
 def train_neural_network(neural_net, training_set, epochs, learning_rate, target_error):
     for epoch in range(epochs):
         total_error = 0
-        for inputs, target in training_set:
+        for row in training_set:
+            inputs = row[:-1]  # Первые (len(row) - 1) элементов - это входы
+            target = row[-1]   # Последний элемент - это цель
+
             layer_inputs = inputs
             for layer in neural_net.layers:
                 layer_outputs = layer.forward_pass(layer_inputs)
@@ -125,7 +139,9 @@ def train_neural_network(neural_net, training_set, epochs, learning_rate, target
 
 def split_data(data, train_fraction):
     num_samples = len(data)
+    shuffled_data = data.sample(frac=1)  # Перетасовываем данные
     train_size = int(train_fraction * num_samples)
-    train_data = data[:train_size]
-    test_data = data[train_size:]
+    train_data = shuffled_data[:train_size]
+    test_data = shuffled_data[train_size:]
     return train_data, test_data
+
