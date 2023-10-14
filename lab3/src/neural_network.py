@@ -56,10 +56,10 @@ class Neuron:
         self.bias = np.random.uniform(0.001, 0.2)
         self.accuracy = 0.1
 
+
     def predict(self, x):
         summator = np.dot(x, self.weights) + self.bias
         return summator
-
     def update_weights(self, x, y, learning_rate):
         x = np.array(x)
         prediction = self.predict(x)
