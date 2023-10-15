@@ -1,42 +1,53 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
 from keras.models import Sequential
 from keras.layers import Dense
-from sklearn.preprocessing import MinMaxScaler
 
-# 1. Создание набора данных
-x = np.arange(-20 * np.pi, 20 * np.pi, 0.1)
-y = np.sin(x)
+# Создание набора данных
+X = np.arange(-20, 20, 0.1)
+y = np.sin(X)
 
-# 2. Масштабирование данных
-scaler = MinMaxScaler(feature_range=(-1, 1))
-x_scaled = scaler.fit_transform(x.reshape(-1, 1))
-y_scaled = scaler.fit_transform(y.reshape(-1, 1)).flatten()
+# Разделение на обучающую и тестовую выборки
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# 3. Разделение на обучающую и тестовую выборки
-split_idx = int(0.8 * len(x))
-x_train, x_test = x_scaled[:split_idx], x_scaled[split_idx:]
-y_train, y_test = y_scaled[:split_idx], y_scaled[split_idx:]
-
-# 4. Создание более сложной модели
+# Создание модели
 model = Sequential()
-model.add(Dense(units=20, input_dim=1, activation='relu'))
-model.add(Dense(units=20, activation='relu'))
-model.add(Dense(units=1, activation='linear'))
+model.add(Dense(200, input_dim=1, activation='relu'))
+model.add(Dense(100, activation='relu'))
+model.add(Dense(50, activation='relu'))
+model.add(Dense(1, activation='linear'))
 
-# 5. Компиляция и обучение модели
-model.compile(optimizer='adam', loss='mean_squared_error')
-model.fit(x_train, y_train, epochs=10, batch_size=10, verbose=1)
+# Компиляция модели
+model.compile(loss='mean_squared_error', optimizer='adam')
 
-# 6. Оценка модели на тестовых данных
-loss = model.evaluate(x_test, y_test)
-print(f'Loss on test data: {loss}')
+# Список для сохранения значений функции потерь
+history = []
 
-# 7. Генерация предсказаний для построения графика
-predictions = model.predict(x_test)
+# Обучение модели с сохранением истории
+history = model.fit(X_train, y_train, epochs=1500, batch_size=32, verbose=1)
 
-# 8. Построение графика
-plt.scatter(x_test, y_test, color='b', label='True Function')
-plt.scatter(x_test, predictions, color='r', label='Predictions')
+# Получение предсказаний для всего диапазона значений X
+y_pred = model.predict(X)
+
+# Визуализация результатов
+plt.figure(figsize=(12, 4))
+
+# График функции потерь
+plt.subplot(1, 2, 1)
+plt.plot(history.history['loss'])
+plt.title('Training Loss')
+plt.xlabel('Epoch')
+plt.ylabel('Mean Squared Error')
+
+# График предсказаний и истинной функции
+plt.subplot(1, 2, 2)
+plt.scatter(X, y, color='black', label='Actual data')
+plt.scatter(X, y_pred, color='red', label='Predicted data')
+plt.plot(X, np.sin(X), color='blue', linewidth=3, label='True function')
+plt.xlabel('X')
+plt.ylabel('f(X)')
 plt.legend()
+
+plt.tight_layout()
 plt.show()
