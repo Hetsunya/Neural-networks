@@ -25,13 +25,13 @@ model.compile(loss='mean_squared_error', optimizer='adam')
 history = []
 
 # Обучение модели с сохранением истории
-history = model.fit(X_train, y_train, epochs=1500, batch_size=32, verbose=1)
+history = model.fit(X_train, y_train, epochs=1000, batch_size=32, verbose=1)
 
 # Получение предсказаний для всего диапазона значений X
 y_pred = model.predict(X)
 
 # Визуализация результатов
-plt.figure(figsize=(12, 4))
+plt.figure(figsize=(12, 6))
 
 # График функции потерь
 plt.subplot(1, 2, 1)
