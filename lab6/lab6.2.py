@@ -79,7 +79,8 @@ input_shape = X_train[0].shape
 model = create_model(input_shape)
 
 # Компиляция модели
-model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=0.001), metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.001), metrics=['accuracy'])
+
 
 # Обучение модели
 model.fit(X_train, y_train, batch_size=32, epochs=10, validation_data=(X_test, y_test))
