@@ -20,13 +20,13 @@ fi_test = X_test % (2*np.pi)
 
 # Создаем и обучаем модель
 model = keras.Sequential([
-    layers.Dense(32, activation='relu', input_shape=(2,)), # Два входа: номер периода и смещение
-    layers.Dense(16, activation='relu'),
+    layers.Dense(64, activation='relu', input_shape=(2,)), # Два входа: номер периода и смещение
+    layers.Dense(32, activation='relu'),
     layers.Dense(1)
 ])
 
 model.compile(loss='mse', optimizer='rmsprop', metrics=['mae'])
-model.fit(np.column_stack((t_train, fi_train)), y_train, epochs=300, batch_size=50)
+model.fit(np.column_stack((t_train, fi_train)), y_train, epochs=150, batch_size=10)
 
 # Оцениваем точность модели
 _, accuracy = model.evaluate(np.column_stack((t_train, fi_train)), y_train)

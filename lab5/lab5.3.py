@@ -18,15 +18,15 @@ fi_test = X_test % (2*np.pi)
 # Создание и обучение подсетей
 # Сеть для предсказания периода (t)
 model_period = keras.Sequential([
-    layers.Dense(16, activation='relu', input_shape=(1,)),
-    layers.Dense(8, activation='relu'),
+    layers.Dense(64, activation='relu', input_shape=(1,)),
+    layers.Dense(32, activation='relu'),
     layers.Dense(1)
 ])
 
 # Сеть для предсказания смещения (fi)
 model_offset = keras.Sequential([
-    layers.Dense(16, activation='relu', input_shape=(1,)),
-    layers.Dense(8, activation='relu'),
+    layers.Dense(64, activation='relu', input_shape=(1,)),
+    layers.Dense(32, activation='relu'),
     layers.Dense(1)
 ])
 
@@ -34,8 +34,8 @@ model_offset = keras.Sequential([
 model_period.compile(loss='mse', optimizer='adam')
 model_offset.compile(loss='mse', optimizer='adam')
 
-model_period.fit(X_train, t_train, epochs=300, batch_size=32, verbose=0)
-model_offset.fit(X_train, fi_train, epochs=300, batch_size=32, verbose=0)
+model_period.fit(X_train, t_train, epochs=150, batch_size=10, verbose=1)
+model_offset.fit(X_train, fi_train, epochs=150, batch_size=10, verbose=1)
 
 # Вариант 1: Объединение подсетей перед обучением
 # Входной слой
@@ -54,7 +54,7 @@ output_layer = layers.Dense(1)(combined)
 # Создание и обучение сложной модели
 model_complex1 = keras.Model(inputs=input_layer, outputs=output_layer)
 model_complex1.compile(loss='mse', optimizer='rmsprop', metrics=['mae'])
-model_complex1.fit(X_train, y_train, epochs=300, batch_size=50)
+model_complex1.fit(X_train, y_train, epochs=150, batch_size=10)
 
 # Оценка точности
 _, accuracy_complex1 = model_complex1.evaluate(X_test, y_test)
@@ -81,7 +81,7 @@ output_layer2 = layers.Dense(1)(combined2)
 # Создание и обучение сложной модели (только выходной слой)
 model_complex2 = keras.Model(inputs=input_layer2, outputs=output_layer2)
 model_complex2.compile(loss='mse', optimizer='rmsprop', metrics=['mae'])
-model_complex2.fit(X_train, y_train, epochs=300, batch_size=50)
+model_complex2.fit(X_train, y_train, epochs=150, batch_size=10)
 
 # Оценка точности
 _, accuracy_complex2 = model_complex2.evaluate(X_test, y_test)
