@@ -7,7 +7,7 @@ from surprise.model_selection import train_test_split
 from surprise import accuracy
 
 # Загрузка данных из CSV файла
-file_path = '/home/hetsu/Desktop/Neural-networks/lab4/task5/spotify_songs.csv'
+file_path = 'spotify_songs.csv'
 data = pd.read_csv(file_path)
 
 # Определение рейтингов

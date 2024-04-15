@@ -1,6 +1,7 @@
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from keras.applications import VGG16
 from keras.models import Sequential
+from tensorflow.keras.layers import Input
 from keras.layers import Flatten, Dense, Dropout
 from keras.optimizers import Adam
 
@@ -30,9 +31,16 @@ validation_generator = train_datagen.flow_from_directory(
     class_mode='categorical',
     subset='validation'
 )
+#
+# # Загружаем предобученную модель VGG16 без полносвязных слоев
+# base_model = VGG16(weights='imagenet', include_top=False, input_shape=(150, 150, 3))
 
-# Загружаем предобученную модель VGG16 без полносвязных слоев
-base_model = VGG16(weights='imagenet', include_top=False, input_shape=(150, 150, 3))
+# Слой ввода с определенной формой
+input_layer = Input(shape=(150, 150, 3))
+
+# Загрузка базовой модели VGG16
+base_model = VGG16(weights='imagenet', include_top=False, input_tensor=input_layer)
+
 
 # Создаем новую модель на основе VGG16
 model = Sequential()
@@ -52,7 +60,7 @@ model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.00
 # Обучение модели
 history = model.fit(
     train_generator,
-    epochs=10,
+    epochs=2,
     validation_data=validation_generator
 )
 
@@ -62,4 +70,7 @@ print("Потери:", loss)
 print("Точность:", accuracy)
 
 # Сохранение модели
-model.save("model.h5")
+# model.save("model.h5")
+
+
+model.save("model.keras")

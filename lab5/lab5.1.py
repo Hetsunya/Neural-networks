@@ -20,7 +20,7 @@ model = keras.Sequential([
 ])
 
 model.compile(loss='mse', optimizer='rmsprop', metrics=['mae'])
-model.fit(X_train, y_train, epochs=300, batch_size=50)
+model.fit(X_train, y_train, epochs=1000, batch_size=32)
 
 # 4. Оцениваем точность модели
 _, accuracy = model.evaluate(X_train, y_train)

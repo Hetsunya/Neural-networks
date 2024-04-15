@@ -20,21 +20,27 @@ train_data, test_data = data[:split_idx], data[split_idx:]
 x_train, y_train, x_test, y_test = train_data[:, 0:2], train_data[:, 1], test_data[:, 0:2], test_data[:, 1]
 
 model = Sequential()
-model.add(Dense(units=5, input_dim=2, activation='relu'))
+model.add(Dense(units=10, input_dim=2, activation='relu'))
 model.add(Dense(units=1, activation='linear'))
 
 # Сборка модели
 model.compile(optimizer='adam', loss='mean_squared_error')
 
 # Обучение модели
-model.fit(x_train, y_train, epochs=10, batch_size=32)
+model.fit(x_train, y_train, epochs=200, batch_size=64)
 
 # Генерация предсказаний для построения графика
 predictions = model.predict(x_test)
 
 # Построение графика окружности и предсказаний
-plt.scatter(x_test[:, 0], x_test[:, 1], c=np.ones_like(predictions.flatten()), cmap='viridis')
-plt.plot(0, 0, color='b', label='Predictions')
-plt.plot(x_data, y_data, color='r', label='True Circle')
+# Визуализация результатов
+plt.figure(figsize=(8, 6))
+plt.scatter(x_test[:, 0], y_test, color='blue', label='Исходные данные')
+plt.scatter(x_test[:, 0], predictions, color='red', label='Предсказания модели')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Аппроксимация окружности')
 plt.legend()
+plt.axis('equal')
 plt.show()
+

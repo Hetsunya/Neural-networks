@@ -61,12 +61,12 @@ def load_data(images, labels, test_size=0.2):
 # Создание архитектуры нейронной сети
 def create_model(input_shape):
     model = Sequential()
-    model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
+    model.add(Conv2D(16, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
     model.add(MaxPooling2D(pool_size=(2, 2)))
-    model.add(Conv2D(64, kernel_size=(3, 3), activation='relu'))
+    model.add(Conv2D(32, kernel_size=(3, 3), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Flatten())
-    model.add(Dense(128, activation='relu'))
+    model.add(Dense(64, activation='relu'))
     model.add(Dropout(0.5))
     model.add(Dense(2, activation='softmax'))
     return model
@@ -79,11 +79,11 @@ input_shape = X_train[0].shape
 model = create_model(input_shape)
 
 # Компиляция модели
-model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.001), metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.01), metrics=['accuracy'])
 
 
 # Обучение модели
-model.fit(X_train, y_train, batch_size=32, epochs=10, validation_data=(X_test, y_test))
+model.fit(X_train, y_train, batch_size=16, epochs=1, validation_data=(X_test, y_test))
 
 # Оценка модели
 loss, accuracy = model.evaluate(X_test, y_test)
@@ -104,7 +104,7 @@ for i in range(len(X_test)):
     predicted_label = "Ваш вариант" if predicted_labels[i] == 1 else "Не ваш вариант"
     plt.imshow(image)
     plt.title(f"True: {true_label}, Predicted: {predicted_label}")
-    plt.savefig(f"test_result_{i}.png")
+    plt.savefig(f"result/test_result_{i}.png")
     plt.close()
 
 print("Результаты работы модели сохранены в файлы test_result_i.png")

@@ -3,25 +3,26 @@ import matplotlib.pyplot as plt
 from keras.models import Sequential
 from keras.layers import Dense
 
-# 1. Создание набора данных
-x = np.arange(-20, 20, 0.1)
-y = np.abs(x)
+# Создание обучающих данных
+x_train = np.linspace(-20, 20, 1000)
+y_train = np.abs(x_train)
 
-# 2. Разделение на обучающую и тестовую выборки
-split_idx = int(0.8 * len(x))
-x_train, x_test = x[:split_idx], x[split_idx:]
-y_train, y_test = y[:split_idx], y[split_idx:]
-
-# 3. Создание модели нейронной сети
+# Создание и компиляция модели
 model = Sequential()
-model.add(Dense(units=1, input_dim=1, activation='relu'))  # Используем ReLU для аппроксимации |x|
+model.add(Dense(10, input_dim=1, activation='relu'))
+model.add(Dense(1, activation='linear'))
+model.compile(loss='mean_squared_error', optimizer='adam')
 
-# 4. Компиляция и обучение модели
-model.compile(optimizer='sgd', loss='mean_squared_error')
-model.fit(x_train, y_train, epochs=10, batch_size=10)
+# Обучение модели
+model.fit(x_train, y_train, epochs=100, batch_size=32)
 
-# 5. Построение графика
-plt.scatter(x_test, model.predict(x_test), color='r', label='Predictions')
-plt.plot(x, y, label='True Function')
+# Визуализация результатов
+x_test = np.linspace(-25, 25, 1000)
+y_pred = model.predict(x_test)
+plt.plot(x_train, y_train, label='Исходные данные')
+plt.plot(x_test, y_pred, label='Предсказания модели')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Аппроксимация функции f(x) = |x|')
 plt.legend()
 plt.show()
