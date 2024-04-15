@@ -6,6 +6,8 @@ import numpy as np
 
 # Путь к папке с данными
 data_dir = "data6"
+train_dir = "data6/6"
+val_dir = "data6"
 
 # Создаем генератор изображений для обучения
 train_datagen = ImageDataGenerator(
@@ -48,7 +50,7 @@ model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.00
 # Обучение модели
 history = model.fit(
     train_generator,
-    epochs=3,
+    epochs=10,
     validation_data=validation_generator
 )
 
@@ -57,6 +59,7 @@ loss, accuracy = model.evaluate(validation_generator)
 print("Потери:", loss)
 print("Точность:", accuracy)
 
+# model.save("fin.h5")
 
 import matplotlib.pyplot as plt
 import os
@@ -76,17 +79,17 @@ for i in range(len(validation_generator)):
     # Получаем батч изображений и меток из генератора
     batch_images, batch_labels = validation_generator[i]
     # Получаем предсказания модели для текущего батча
-    batch_predictions = model.predict(  )
+    batch_predictions = model.predict(batch_images)
     # Проходим по каждому изображению в батче
     for j in range(len(batch_images)):
         image = batch_images[j]  # Получаем изображение из батча
-        true_label = "Ваш вариант" if np.argmax(batch_labels[j]) == 1 else "Не ваш вариант"  # Получаем метку истинного класса
-        predicted_label = "Ваш вариант" if np.argmax(batch_predictions[j]) == 1 else "Не ваш вариант"  # Получаем предсказанную метку класса
+        true_label = "Ваш вариант" if batch_labels[j][5] == 1 else "Не ваш вариант"  # Получаем метку истинного класса
+        predicted_label = "Ваш вариант" if batch_predictions[j][5] == 1 else "Не ваш вариант"  # Получаем предсказанную метку класса
         plt.imshow(image)
         plt.title(f"True: {true_label}, Predicted: {predicted_label}")
         plt.savefig(f"{result_dir}/test_result_{i * len(batch_images) + j}.png")
         plt.close()
 
-print("Результаты работы модели сохранены в файлы в папке 'result'")
+print(f"Результаты работы модели сохранены в файлы в папке '{result_dir}'")
 
 
