@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ab3b5ad7-e330-4aa7-bc75-898be4225898" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab5/lab5.1.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/lab5.1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab5/lab5.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/lab5.2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab5/lab5.3.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/lab5.3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab5/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab7/task3.2-gpt.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/task3.2-gpt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab7/task3.2-negpt.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/task3.2-negpt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/lab2/1/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/lab2/1/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/lab4/task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/lab4/task2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/lab4/task5/spotify_songs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/lab4/task5/task5.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/lab4/task5/task5.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +42,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "ignore_missing_gitignore": "true",
-    "last_opened_file_path": "D:/Задания/3 Курс/python/Neural-networks/lab7",
+    "last_opened_file_path": "D:/Задания/3 Курс/python/Neural-networks/old/lab4/task5",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,57 +58,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Задания\3 Курс\python\Neural-networks\lab7" />
-      <recent name="D:\Задания\3 Курс\python\Neural-networks\lab5" />
+      <recent name="D:\Задания\3 Курс\python\Neural-networks\old\lab4\task5" />
+      <recent name="D:\Задания\3 Курс\python\Neural-networks" />
+      <recent name="D:\Задания\3 Курс\python\Neural-networks\old\lab3\task1" />
+      <recent name="D:\Задания\3 Курс\python\Neural-networks\old\lab2" />
+      <recent name="D:\Задания\3 Курс\python\Neural-networks\lab2" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="1" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="Neural-networks" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.11" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab6" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab6/1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="2" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="Neural-networks" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.11" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab6" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab6/2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Задания\3 Курс\python\Neural-networks\lab3" />
+      <recent name="D:\Задания\3 Курс\python\Neural-networks\lab3\src" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -126,7 +88,10 @@
       <workItem from="1713199461835" duration="116000" />
       <workItem from="1713199720320" duration="75000" />
       <workItem from="1713199797100" duration="6357000" />
-      <workItem from="1713206494386" duration="6049000" />
+      <workItem from="1713206494386" duration="6997000" />
+      <workItem from="1713286676871" duration="3065000" />
+      <workItem from="1713289776761" duration="1932000" />
+      <workItem from="1713291788781" duration="3772000" />
     </task>
     <servers />
   </component>
@@ -134,20 +99,28 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Neural_networks$1.coverage" NAME="1 Coverage Results" MODIFIED="1713199851648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab6" />
+    <SUITE FILE_PATH="coverage/Neural_networks$task2.coverage" NAME="task2 Coverage Results" MODIFIED="1713293244188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old/lab4" />
+    <SUITE FILE_PATH="coverage/Neural_networks$lab2_3.coverage" NAME="lab2.3 Coverage Results" MODIFIED="1713292054719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old/lab2/3" />
+    <SUITE FILE_PATH="coverage/Neural_networks$task5.coverage" NAME="task5 Coverage Results" MODIFIED="1713294994401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old/lab4/task5" />
     <SUITE FILE_PATH="coverage/Neural_networks$task1_gpt.coverage" NAME="task1-gpt Coverage Results" MODIFIED="1713208756081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
+    <SUITE FILE_PATH="coverage/Neural_networks$1.coverage" NAME="1 Coverage Results" MODIFIED="1713291949211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab6" />
+    <SUITE FILE_PATH="coverage/Neural_networks$lab3.coverage" NAME="lab3 Coverage Results" MODIFIED="1713292799854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab3" />
     <SUITE FILE_PATH="coverage/Neural_networks$new_lab5_3_ne_gpt.coverage" NAME="new_lab5.3-ne=gpt Coverage Results" MODIFIED="1713208122523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab5" />
-    <SUITE FILE_PATH="coverage/Neural_networks$task3_2_gpt.coverage" NAME="task3.2-gpt Coverage Results" MODIFIED="1713212590512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
+    <SUITE FILE_PATH="coverage/Neural_networks$task3_2_gpt.coverage" NAME="task3.2-gpt Coverage Results" MODIFIED="1713290064644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
     <SUITE FILE_PATH="coverage/Neural_networks$task3_1_gpt.coverage" NAME="task3.1-gpt Coverage Results" MODIFIED="1713211007049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
     <SUITE FILE_PATH="coverage/Neural_networks$lab5_1.coverage" NAME="lab5.1 Coverage Results" MODIFIED="1713206798993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab5" />
+    <SUITE FILE_PATH="coverage/Neural_networks$task4.coverage" NAME="task4 Coverage Results" MODIFIED="1713293382115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old/lab4" />
     <SUITE FILE_PATH="coverage/Neural_networks$task2_negpt.coverage" NAME="task2-negpt Coverage Results" MODIFIED="1713211621362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
     <SUITE FILE_PATH="coverage/Neural_networks$new_lab5_3.coverage" NAME="new_lab5.3 Coverage Results" MODIFIED="1713207985345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab5" />
-    <SUITE FILE_PATH="coverage/Neural_networks$task3_2_negpt.coverage" NAME="task3.2-negpt Coverage Results" MODIFIED="1713212524691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
+    <SUITE FILE_PATH="coverage/Neural_networks$task3_2_negpt.coverage" NAME="task3.2-negpt Coverage Results" MODIFIED="1713288279973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
+    <SUITE FILE_PATH="coverage/Neural_networks$task3.coverage" NAME="task3 Coverage Results" MODIFIED="1713293283789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old/lab4" />
+    <SUITE FILE_PATH="coverage/Neural_networks$task1.coverage" NAME="task1 Coverage Results" MODIFIED="1713293108125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old/lab4" />
     <SUITE FILE_PATH="coverage/Neural_networks$lab5_2.coverage" NAME="lab5.2 Coverage Results" MODIFIED="1713206738091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab5" />
+    <SUITE FILE_PATH="coverage/Neural_networks$lab2_2.coverage" NAME="lab2.2 Coverage Results" MODIFIED="1713290751114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old/lab2/2" />
     <SUITE FILE_PATH="coverage/Neural_networks$2.coverage" NAME="2 Coverage Results" MODIFIED="1713205005490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab6" />
     <SUITE FILE_PATH="coverage/Neural_networks$task2_gpt.coverage" NAME="task2-gpt Coverage Results" MODIFIED="1713210251221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
-    <SUITE FILE_PATH="coverage/Neural_networks$lab2_1.coverage" NAME="lab2.1 Coverage Results" MODIFIED="1712563065130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old/lab2/1" />
     <SUITE FILE_PATH="coverage/Neural_networks$test.coverage" NAME="test Coverage Results" MODIFIED="1713206016374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab6" />
+    <SUITE FILE_PATH="coverage/Neural_networks$lab2_1.coverage" NAME="lab2.1 Coverage Results" MODIFIED="1713290675821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old/lab2/1" />
     <SUITE FILE_PATH="coverage/Neural_networks$lab5_3.coverage" NAME="lab5.3 Coverage Results" MODIFIED="1713207112568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab5" />
     <SUITE FILE_PATH="coverage/Neural_networks$task1_negpt.coverage" NAME="task1-negpt Coverage Results" MODIFIED="1713210145134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
   </component>

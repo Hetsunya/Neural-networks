@@ -37,12 +37,14 @@ for i, sequence in enumerate(y_train_pad):
 # Создание модели
 model = tf.keras.Sequential([
     tf.keras.layers.Embedding(input_dim=len(tokenizer_ru.word_index) + 1, output_dim=100),
-    tf.keras.layers.Bidirectional(tf.keras.layers.SimpleRNN(64)),
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64, return_sequences=False)),
+    tf.keras.layers.Dropout(0.2),
     tf.keras.layers.Dense(len(tokenizer_en.word_index) + 1, activation='softmax')
 ])
 
 # Компиляция модели
-model.compile(optimizer='adam', loss='categorical_crossentropy')
+optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
+model.compile(optimizer=optimizer, loss='categorical_crossentropy')
 
 # Преобразование разреженной матрицы в массив numpy
 y_train_np = y_train_sparse.toarray()
@@ -55,5 +57,11 @@ sample_input = ["Привет, как дела?"]
 sample_input_seq = tokenizer_ru.texts_to_sequences(sample_input)
 sample_input_pad = pad_sequences(sample_input_seq, maxlen=max_len_ru, padding='post')
 predicted_output = model.predict(sample_input_pad)
+
+predicted_indexes = np.argmax(predicted_output, axis=1)
+
+# Generate the predicted sentence
+predicted_sentence = " ".join([tokenizer_en.index_word[idx] for idx in predicted_indexes if idx != 0])  # Индекс 0 - это заполнитель (padding)
+
 print("Russian sentence:", sample_input)
-print("Predicted English translation:", predicted_output)
+print("Predicted English translation:", predicted_sentence)

@@ -3,6 +3,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, LSTM, Bidirectional, Dense
+import numpy as np
 
 # Загрузка данных
 verses_df = pd.read_csv("verses.csv")
@@ -25,9 +26,13 @@ eng_tokenizer.fit_on_texts(eng_texts)
 rus_sequences = rus_tokenizer.texts_to_sequences(rus_texts)
 eng_sequences = eng_tokenizer.texts_to_sequences(eng_texts)
 
-# Паддинг последовательностей (только для входных данных)
-max_len = max(len(s) for s in rus_sequences)
+# Паддинг последовательностей (для входных и целевых данных)
+max_len = max(len(s) for s in rus_sequences + eng_sequences)
 rus_padded = pad_sequences(rus_sequences, maxlen=max_len, padding='post')
+eng_padded = pad_sequences(eng_sequences, maxlen=max_len, padding='post')  # паддинг для eng_sequences
+
+# Преобразуем eng_padded в NumPy массив
+eng_padded = np.array(eng_padded)
 
 # Создание biRNN модели
 model = Sequential()
@@ -36,6 +41,10 @@ model.add(Bidirectional(LSTM(256, return_sequences=True)))
 model.add(Bidirectional(LSTM(256)))
 model.add(Dense(len(eng_tokenizer.word_index) + 1, activation='softmax'))
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+# Преобразуем eng_sequences в NumPy массив
+eng_sequences = np.array(eng_sequences)
+
 
 # Обучение модели
 model.fit(rus_padded, eng_sequences, epochs=10, batch_size=64)

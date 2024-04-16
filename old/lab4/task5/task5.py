@@ -1,31 +1,31 @@
-# Установка библиотек
-# pip install scikit-surprise pandas
-
 import pandas as pd
-from surprise import Dataset, Reader, KNNBasic
-from surprise.model_selection import train_test_split
-from surprise import accuracy
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.utils import to_categorical
 
-# Загрузка данных из CSV файла
-file_path = 'spotify_songs.csv'
-data = pd.read_csv(file_path)
+# Load data
+data = pd.read_csv("chinese_mnist.csv")
 
-# Определение рейтингов
-reader = Reader(rating_scale=(0, 100))  # Предположим, что 'track_popularity' находится в диапазоне от 0 до 100
+# Separate features and labels
+X = data.drop(["suite_id", "sample_id", "code", "character"], axis=1).values
+y = data["code"].values
 
-# Создание объекта Dataset
-dataset = Dataset.load_from_df(data[['playlist_id', 'track_id', 'track_popularity']], reader)
+# One-hot encode labels
+y_encoded = to_categorical(y)
 
-# Разбивка на обучающий и тестовый наборы
-trainset, testset = train_test_split(dataset, test_size=0.2)
+# Split data into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2)
 
-# Обучение модели
-model = KNNBasic(sim_options={'user_based': True})
-model.fit(trainset)
+model = Sequential()
+model.add(Dense(128, activation="relu", input_shape=(X_train.shape[1],)))
+model.add(Dense(64, activation="relu"))
+model.add(Dense(y_encoded.shape[1], activation="softmax"))
 
-# Получение предсказаний
-predictions = model.test(testset)
+model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 
-# Оценка качества модели
-rmse = accuracy.rmse(predictions)
-print(f'RMSE: {rmse}')
+model.fit(X_train, y_train, epochs=100, batch_size=64, validation_data=(X_test, y_test))
+
+loss, accuracy = model.evaluate(X_test, y_test)
+print("Loss:", loss)
+print("Accuracy:", accuracy)

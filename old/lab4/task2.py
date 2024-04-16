@@ -4,7 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 
 # Создание обучающих данных
-x_train = np.linspace(-20, 20, 1000)
+x_train = np.arange(-20, 20, 0.1)
 y_train = np.abs(x_train)
 
 # Создание и компиляция модели
