@@ -4,6 +4,10 @@ from sklearn.model_selection import train_test_split
 from tensorflow import keras
 from tensorflow.keras import layers
 import matplotlib.pyplot as plt
+import tensorflow as tf
+
+def sigm(x):
+    return tf.sin(x)
 
 # 1. Создаем набор данных
 x = np.arange(-20, 20, 0.1)
@@ -14,8 +18,8 @@ X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random
 
 # 3. Создаем и обучаем модель
 model = keras.Sequential([
-    layers.Dense(64, activation='relu', input_shape=(1,)),
-    layers.Dense(32, activation='relu'),
+    layers.Dense(64, activation=sigm, input_shape=(1,)),
+    layers.Dense(32, activation=sigm),
     layers.Dense(1)
 ])
 

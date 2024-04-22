@@ -4,6 +4,9 @@ from tensorflow import keras
 from tensorflow.keras import layers
 import matplotlib.pyplot as plt
 
+def sigm(x):
+    return tf.sin(x)
+
 # Создание набора данных
 x = np.arange(-20, 20, 0.1)
 y = np.sin(x) + np.sin(np.sqrt(2)*x)
